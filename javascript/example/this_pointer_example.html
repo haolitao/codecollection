@@ -1,0 +1,105 @@
+<html>
+
+<SCRIPT language="JavaScript">
+	
+	console.log("this === window");  // true 
+	console.log("this === window");  // true  
+	console.log("window.alert === this.alert");  // true  
+    console.log(window.alert === this.alert);  // true  
+	
+	console.log("this.parseInt(021, 10)");  // 10  
+    console.log(this.parseInt("021", 10));  // 10  
+	
+	
+	
+	// 定义一个全局函数  
+	function foo() {  
+		console.log(this.fruit);  
+	}  
+	
+	// 定义一个全局变量，等价于window.fruit = "apple";  
+	var fruit = "apple";  
+	// 此时函数foo中this指向window对象  
+	// 这种调用方式和window.foo();是完全等价的  
+	foo();  // "apple"  
+ 
+	
+	// 自定义一个对象，并将此对象的属性foo指向全局函数foo  
+	var pack = {  
+		fruit: "orange",  
+		foo: foo  
+	};  
+	// 此时函数foo中this指向window.pack对象  
+	pack.foo(); // "orange" 
+
+	
+	
+	
+	  // 定义一个全局变量  
+	 var fruit = "apple";  
+	 // 自定义一个对象  
+	 var pack = {  
+		 fruit: "orange" 
+	 };  
+   
+	 // 等价于window.foo();  
+	 foo.apply(window);  // "apple"  
+	 // 此时foo中的this === pack  
+	 foo.apply(pack);    // "orange"  
+	
+	
+	    // 定义一个全局函数  
+    function foo() {  
+        if (this === window) {  
+            console.log("this is window.");  
+        }  
+    }  
+     
+    // 函数foo也是对象，所以可以定义foo的属性boo为一个函数  
+    foo.boo = function() {  
+        if (this === foo) {  
+            console.log("this is foo.");  
+        } else if (this === window) {  
+            console.log("this is window.");  
+        }  
+    };  
+    // 等价于window.foo();  
+    foo();  // this is window.  
+     
+    // 可以看到函数中this的指向调用函数的对象  
+    foo.boo();  // this is foo.  
+     
+    // 使用apply改变函数中this的指向  
+    foo.boo.apply(window);  // this is window.  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+</script>
+
+<body>
+
+<script type="text/javascript">
+	document.write("Hello World!")
+</script>
+
+<A HREF="JavaScript:newPage()">Create-a-Page!</A>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+
+<SCRIPT language="JavaScript">
+	
+	
+	
+	function showProps(obj, objName) {
+	  var result = "";
+	  for (var i in obj){
+		result += objName + "." + i + " = " + obj[i] + "\n";
+	  }
+	  console.log(result);
+	  return result;
+	}
+	
+	
+	// 构造函数  
+    function Person(name) {  
+        this.name = name;  
+    }
+	
+    // 定义Person的原型，原型中的属性可以被自定义对象引用  
+	Person.prototype = {  
+        getName: function() {  
+            return this.name;  
+        }  
+    }  
+    
+	var zhang = new Person("ZhangSan");  
+    console.log(zhang.getName());   // "ZhangSan" 
+	
+	showProps(zhang, "Person");
+	
+	
+	// 初始化数组的实例  
+	var arr1 = new Array(1, 56, 34, 12);  
+	// 但是，我们更倾向于如下的语法定义：  
+	var arr2 = [1, 56, 34, 12]; 
+	
+	
+	// 向JavaScript固有类型Array扩展一个获取最小值的方法  
+	Array.prototype.min = function() {  
+		var min = this[0];  
+		for (var i = 1; i <  this.length; i++) {  
+			if (this[i] <  min) {  
+				min = this[i];  
+			}  
+		}  
+		return min;  
+	};
+	
+	console.log([1, 56, 34, 12].min());  // 1 
+	
+	
+    var arr = [1, 56, 34, 12];  
+    var total = 0;  
+    for (var i in arr) {  
+        if (arr.hasOwnProperty(i)) {  
+            total += parseInt(arr[i], 10);  
+        }  
+    }  
+    console.log(total);   // 103 
+	
+
+
+	
+		
+</script>
+
+<body>
+
+<script type="text/javascript">
+	document.write("Hello World!")
+</script>
+
+<A HREF="JavaScript:newPage()">Create-a-Page!</A>
+
+</body>
+</html>

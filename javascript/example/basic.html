@@ -1,0 +1,57 @@
+<html>
+
+<SCRIPT language="JavaScript">
+	var myCar = new Object();
+	myCar.make = "Ford";
+	myCar.model = "Mustang";
+	myCar.year = 1969;	
+
+	
+	
+	function showProps(obj, objName) {
+	  var result = "";
+	  for (var i in obj){
+		result += objName + "." + i + " = " + obj[i] + "\n";
+	  }
+	  console(result);
+
+	  return result;
+	}
+	
+	function listAllProperties(o){    
+		var objectToInspect;    
+		var result = [];
+		 
+		for(objectToInspect = o; objectToInspect !== null; objectToInspect = Object.getPrototypeOf(objectToInspect)){ 
+			result = result.concat(Object.getOwnPropertyNames(objectToInspect)); 
+		}
+		return result;
+	}
+	
+	
+	var newPage = function(){
+		var res= showProps(myCar, "myCar");
+		console.log(res);
+		
+		res= listAllProperties(myCar);
+		console.log(res);
+	}
+	
+	(function foo(){
+		alert("hello world");
+	})();
+	
+	
+	
+</script>
+
+<body>
+
+<script type="text/javascript">
+	document.write("Hello World!")
+</script>
+
+<A HREF="JavaScript:newPage()">Create-a-Page!</A>
+
+</body>
+</html>

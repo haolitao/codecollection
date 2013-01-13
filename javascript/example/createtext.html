@@ -1,0 +1,61 @@
+<html>
+
+<SCRIPT language="JavaScript">
+
+	var myarr= [2, 5, 7, 3];
+	var byAsc= function(x,y) { return x©\y; };
+	var byDesc= function(x,y) { return y©\x; };
+	myarr.sort(byAsc);
+	alert(myarr); //2,3,5,7
+	myarr.sort(byDesc);
+	alert(myarr); //7,5,3,2
+
+
+
+	function newPage() {
+		var userName = prompt("Please enter your name:", "");
+		document.write("<H1>Welcome " + userName + "</H1><BR>");
+		document.write("<H2>to your new home page.</H2>");
+	}
+	
+		alert(window.top);
+	
+	
+	var woman = function () {
+		alert('beauty');
+	}
+	
+	var man = function () {
+		alert('cool')
+	}
+	
+	alert(man);
+	
+	var a = 'global';
+	function b() {
+	var c = 'local';
+		function d(){
+			alert(c);
+		}
+		d();
+	}
+	
+	alert(a); //global
+	alert(c); //not defined
+	b(); //local
+	d(); //no defined
+
+	
+	
+</script>
+
+<body>
+
+<script type="text/javascript">
+	document.write("Hello World!")
+</script>
+
+<A HREF="JavaScript:newPage()">Create-a-Page!</A>
+
+</body>
+</html>

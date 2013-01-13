@@ -1,0 +1,68 @@
+<html>
+<head>
+ <meta charset="UTF-8">
+ <script src="./jquery-1.8.0.min.js"></script>
+</head>
+
+
+<body>
+
+
+	<script type="text/javascript">
+		
+			
+		function showProps(obj, objName) {
+		  var result = "";
+		  for (var i in obj){
+			result += objName + "." + i + " = " + obj[i] + "\n";
+		  }
+		  console.log(result);
+		  return result;
+		}		
+	
+	
+		
+		 $(document).ready(function(){
+			console.log( 'ready!' );
+			console.info("html");
+			$(document).html("Hello World!")
+			
+			console.log($.support);
+			//console.log(showProps($,"$"));
+			
+			
+			$( '#header' ); // select the element with an ID of 'header'
+			$( 'li' );      // select all list items on the page
+			$( 'ul li' );   // select list items that are in unordered lists
+			$( '.person' ); // select all elements with a class of 'person'
+			
+			
+			// create a jQuery object from a DOM element
+			$( document.body.children[0] );
+
+			// create a jQuery object from a list of DOM elements
+			$( [ window, document ] );
+
+			// make a selection in the context of a DOM element
+			var firstBodyChild = document.body.children[0];
+			$( 'li', firstBodyChild );
+
+			// make a selection within a previous selection
+			var paragraph = $( 'p' );
+			$( 'a', paragraph );
+			
+			
+			
+		$("li").each(function(){  
+			console.log($(this).html() + "----" + this.tagName + "--" + $(this)[0].id);  
+			console.log((this == $(this)[0]));  
+			$(this).attr("title", $(this).html());  
+		});  
+			
+			
+		});
+	</script>
+
+	
+</body>
+</html>

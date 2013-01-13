@@ -1,0 +1,84 @@
+<html>
+
+<body>
+
+<script type="text/javascript">
+	document.write("Hello World!")
+	
+	var myCar = new Object();
+	myCar.make = "Ford";
+	myCar.model = "Mustang";
+	myCar.year = 1969;	
+	
+	
+		(function foo(){
+		alert("hello world");
+	})();
+
+	
+	
+//	var myfCar = new function();
+//	myfCar.make = "Ford";
+//	myfCar.model = "Mustang";
+//	myfCar.year = 1969;	
+
+	
+	var empty_object = {};
+
+	var stooge = {
+		"first-name": "Jerome",
+		"last-name": "Howard"
+	};
+	
+
+
+	var flight = {
+		airline: "Oceanic",
+		number: 815,
+		departure: {
+			IATA: "SYD",
+			time: "2004-09-22 14:55",
+			city: "Sydney"
+		},
+		arrival: {
+			IATA: "LAX",
+			time: "2004-09-23 10:42",
+			city: "Los Angeles"
+		}
+	};
+    	
+	
+	
+	
+	function newPage(){
+		newPage1(myCar);
+		newPage1(empty_object);
+		newPage1(stooge);
+		newPage1(flight);
+		newPage1(flight.arrival);
+		
+		//newPage1(myfCar);
+	}
+	
+	
+	function newPage1(obj){
+		for (myvar in obj) {
+		if (obj.hasOwnProperty(myvar)) {
+			console.log(myvar);
+		}
+	}
+
+	
+	
+
+
+}
+	
+	
+	
+</script>
+
+<A HREF="JavaScript:newPage()">Create-a-Page!</A>
+
+</body>
+</html>

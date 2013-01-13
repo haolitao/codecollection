@@ -1,0 +1,116 @@
+<html>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<head>
+
+
+<style type="text/css">
+.box{
+	 border: 1px solid;
+}
+
+</style>
+
+</head>
+<body>
+	<div class="box">
+		<p>title: the basic clik , will pop up an hello dialog.</p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_1" type="button" value="showHelloDialog" onclick="checkForm()" />
+			</form>
+	</div>	
+	<div class="box">
+		<p>title: the basic operation, will pop up the exception</p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_2" type="button" value="Exeption" onclick="message()" />
+			</form>
+	</div>	
+	<div class="box">
+		<p>title: the basic operation, will pop up the exception</p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_3" type="button" value="ExceptionAndRedirect" onclick="confirmbox()" />
+			</form>
+	</div>	
+
+	<div class="box">
+		<p>title: how many augements, test the function with the augements </p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_4" type="button" value="1" onclick="howManyArgs(0)" />
+			<input id="submit_4" type="button" value="2" onclick="howManyArgs(0,1)" />
+			<input id="submit_4" type="button" value="3" onclick="howManyArgs(0,1,2)" />
+			</form>
+	</div>	
+
+	<div class="box">
+		<p>title: the basic operation, will pop up the exception</p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_3" type="button" value="showFunction2String" onclick="showToString()" />
+			</form>
+	</div>	
+
+	<div class="box">
+		<p>title: the basic operation, will pop up the exception</p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_3" type="button" value="closure" onclick="showToaddNum()" />
+			</form>
+	</div>	
+
+	<div class="box">
+		<p>title: test performance</p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_3" type="button" value="performance" onclick="myTestPerfoamce()" />
+			</form>
+	</div>	
+
+
+
+</body>
+
+<script type="text/javascript">
+	var hello = function(){
+		alert("hello");
+	}
+
+	Function.prototype.method = function (name,func) {
+		console.log(this);
+		
+		console.log(name);
+		console.log(func);
+
+		console.log(this.prototype);
+
+	    this.prototype[name] = func;
+	    console.log(this);
+	    return this;
+	};
+
+
+
+	Function.prototype.method("nihaoma",hello);
+
+
+	hello.nihaoma();
+
+
+</script>
+
+
+</html>
+
+
+
+
