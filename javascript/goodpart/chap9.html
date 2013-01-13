@@ -1,0 +1,211 @@
+<html>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<head>
+
+
+<style type="text/css">
+.box{
+	 border: 1px solid;
+}
+
+</style>
+
+</head>
+<body>
+	<div class="box">
+		<p>title: the basic clik , will pop up an hello dialog.</p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_1" type="button" value="showHelloDialog" onclick="checkForm()" />
+			</form>
+	</div>	
+	<div class="box">
+		<p>title: the basic operation, will pop up the exception</p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_2" type="button" value="Exeption" onclick="message()" />
+			</form>
+	</div>	
+	<div class="box">
+		<p>title: the basic operation, will pop up the exception</p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_3" type="button" value="ExceptionAndRedirect" onclick="confirmbox()" />
+			</form>
+	</div>	
+
+	<div class="box">
+		<p>title: how many augements, test the function with the augements </p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_4" type="button" value="1" onclick="howManyArgs(0)" />
+			<input id="submit_4" type="button" value="2" onclick="howManyArgs(0,1)" />
+			<input id="submit_4" type="button" value="3" onclick="howManyArgs(0,1,2)" />
+			</form>
+	</div>	
+
+	<div class="box">
+		<p>title: the basic operation, will pop up the exception</p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_3" type="button" value="showFunction2String" onclick="showToString()" />
+			</form>
+	</div>	
+
+	<div class="box">
+		<p>title: the basic operation, will pop up the exception</p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_3" type="button" value="closure" onclick="showToaddNum()" />
+			</form>
+	</div>	
+
+	<div class="box">
+		<p>title: test performance</p>
+		<hr/>
+			<form name="input">
+			click:
+			<input id="submit_3" type="button" value="performance" onclick="myTestPerfoamce()" />
+			</form>
+	</div>	
+
+
+
+</body>
+
+<script type="text/javascript">
+	function checkForm(){
+		alert("hello");
+	}
+
+	function message(){
+		try{
+		  adddlert("Welcome guest!");
+		}catch(err){
+		  var txt;
+		  txt="此页面存在一个错误。\n\n"
+		  txt+="错误描述: " + err.description + "\n\n"
+		  txt+="点击OK继续。\n\n"
+		  alert(txt)
+		}
+	}
+
+
+	function confirmbox()
+	{
+		try
+		{
+		  adddlert("Welcome guest!")
+		}catch(err){
+			var txt;
+			txt="There was an error on this page.\n\n"
+			txt+="Click OK to continue viewing this page,\n"
+			txt+="or Cancel to return to the home page.\n\n"
+			console.log(confirm);
+			if(!confirm(txt)){
+				console.log('confirmed');
+			    document.location.href="http://www.w3school.com.cn/"
+			}
+		}
+	}
+
+	function howManyArgs() {
+  		alert(arguments.length);
+	}
+
+	//define the function. 
+	function doAdd(iNum) {
+  		alert(iNum + 10);
+	}
+
+	//This is very cool feature on the website.
+	function showToString () {
+		alert(doAdd.toString());
+	}
+
+
+
+	var iBaseNum = 10;
+	function addNum(iNum1, iNum2) {
+	  return  (function doAdd() {
+	    return iNum1 + iNum2 + iBaseNum;
+	  })();
+	}
+
+	function showToaddNum(){
+		alert(addNum(5,10));
+	}
+
+
+	var  myAUI={};
+	
+	
+
+
+
+	//var MyStrTestperformance={
+
+		function StringBuffer() {
+		  this._strings_ = new Array();
+		}
+
+		StringBuffer.prototype.append = function(str) {
+		  this._strings_.push(str);
+		};
+
+		StringBuffer.prototype.toString = function() {
+		  return this._strings_.join("");
+		};
+
+		function testperformance(){
+			var d1 = new Date();
+			var str = "";
+			for (var i=0; i < 10000; i++) {
+			    str += "text";
+			}
+			var d2 = new Date();
+
+			document.write("Concatenation with plus: "
+			 + (d2.getTime() - d1.getTime()) + " milliseconds");
+
+			var buffer = new MyStr.StringBuffer();
+			d1 = new Date();
+			for (var i=0; i < 10000; i++) {
+			    buffer.append("text");
+			}
+			var result = buffer.toString();
+			d2 = new Date();
+
+			document.write("<br />Concatenation with StringBuffer: "
+			 + (d2.getTime() - d1.getTime()) + " milliseconds");
+		}
+	//};
+
+	function myTestPerfoamce(){
+		testperformance();
+	}
+
+	
+
+
+
+
+
+
+
+
+</script>
+
+
+</html>
+
+
+
+
